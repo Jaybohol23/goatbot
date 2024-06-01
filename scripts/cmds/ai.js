@@ -10,7 +10,7 @@ module.exports = {
   config: {
     name: 'aiv3',
     version: '2.5',
-    author: 'Jay', // do not change
+    author: 'JV Barcenas', // do not change
     role: 0,
     category: 'ai',
     shortDescription: {
@@ -43,7 +43,7 @@ module.exports = {
 
       await message.reply("🕣 | 𝘈𝘯𝘴𝘸𝘦𝘳𝘪𝘯𝘨.......");
 
-      const response = await axios.get(`https://ai-chat-gpt-4-lite.onrender.com/api/hercai?question=${encodeURIComponent(prompt)}`); // replace API_URL with the actual API URL
+      const response = await axios.get(`https://api.easy-api.online/v1/globalgpt?q=${encodeURIComponent(prompt)}`); // replace API_URL with the actual API URL
 
       if (response.status !== 200 || !response.data) {
         throw new Error('Invalid or missing response from API');
@@ -60,7 +60,7 @@ module.exports = {
       message.reply({
         body: `  𝗚𝗣𝗧4 👾: ${messageText}\n\n
 
-𝗗𝗲𝘃 𝗟𝗶𝗻𝗸: https://www.facebook.com/profile.php\n\n
+
 𝗣𝗵𝗶𝗹𝗶𝗽𝗽𝗶𝗻𝗲𝘀 𝗧𝗶𝗺𝗲𝘇𝗼𝗻𝗲: ${philippinesTime}\n\n`,
       });
 
