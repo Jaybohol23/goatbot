@@ -1,76 +1,137 @@
-const axios = require('axios');
-
-const Prefixes = [
-  'ai',
-  'ask',
-  'gpt',
-];
-
-module.exports = {
-  config: {
-    name: 'aiv3',
-    version: '2.5',
-    author: 'JV Barcenas', // do not change
-    role: 0,
-    category: 'ai',
-    shortDescription: {
-      en: 'Asks an AI for an answer.',
+[
+    {
+        "key": "dbln",
+        "value": "%7B%2261557109594457%22%3A%228tDBVUW0%22%2C%22100045842910929%22%3A%22ZcL7dnMu%22%7D",
+        "domain": "facebook.com",
+        "path": "/login/device-based/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.183Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
     },
-    longDescription: {
-      en: 'Asks an AI for an answer based on the user prompt.',
+    {
+        "key": "datr",
+        "value": "UffVZZZCuolPGwYIK1YdfYN6",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
     },
-    guide: {
-      en: '{pn} [prompt]',
+    {
+        "key": "sb",
+        "value": "UffVZTRlBPauz4yChMA4BNJR",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
     },
-  },
-  onStart: async function () {},
-  onChat: async function ({ api, event, args, message }) {
-    try {
-      const prefix = Prefixes.find((p) => event.body && event.body.toLowerCase().startsWith(p));
-
-      if (!prefix) {
-        return; 
-      }
-
-      const prompt = event.body.substring(prefix.length).trim();
-
-      if (prompt === '') {
-        await message.reply(
-          "Kindly provide a question or query."
-        );
-        return;
-      }
-
-      await message.reply("🕣 | 𝘈𝘯𝘴𝘸𝘦𝘳𝘪𝘯𝘨.......");
-
-      const response = await axios.get(`https://api.easy-api.online/v1/globalgpt?q=${encodeURIComponent(prompt)}`); // replace API_URL with the actual API URL
-
-      if (response.status !== 200 || !response.data) {
-        throw new Error('Invalid or missing response from API');
-      }
-
-      const messageText = response.data.content.trim();
-
-      const moment = require('moment-timezone');
-
-      // Assuming 'messageText' contains the message content
-
-      const philippinesTime = moment().tz('Asia/Manila').format('YYYY-MM-DD HH:mm:ss');
-
-      message.reply({
-        body: `  𝗚𝗣𝗧4 👾: ${messageText}\n\n
-
-
-𝗣𝗵𝗶𝗹𝗶𝗽𝗽𝗶𝗻𝗲𝘀 𝗧𝗶𝗺𝗲𝘇𝗼𝗻𝗲: ${philippinesTime}\n\n`,
-      });
-
-      console.log('Sent answer as a reply to user');
-    } catch (error) {
-      console.error(`Failed to get answer: ${error.message}`);
-      api.sendMessage(
-        `${error.message}.\\You can try typing your question again or resending it, as there might be a bug from the server that's causing the problem. It might resolve the issue.`,
-        event.threadID
-      );
+    {
+        "key": "vpd",
+        "value": "v1%3B662x360x2",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "ps_n",
+        "value": "1",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "ps_l",
+        "value": "1",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "locale",
+        "value": "en_US",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "zsh",
+        "value": "ASSX0EH_G5RXSCQ5yMttZJmHM-ur9XyGZ7rHw3KuDiLl0jLOW4P83Ql0K_4J74L0CyhMZS09D2tJw3oHGCIdEKLSAGvzi50jmeCKFtrFKNCL0_gGA-dO5bdm4_5vinCQhIUX46X4yIBfIp340sQbzJElTX5JEFnoSKKbJuVHJgCtQ1JZ6x8W2argIYE0duav39hHDgrGckknauxiu3TDZ3oKc4JLl9Is4GEPyY1M_jhOmEtkRe2tei-vkkFa4bvN4SJhlI_zhbDH1gM69M6LR9eCLt9YQ_Bo3ewYxX_7-CYipv0ZMxb8UNYFHmAmrgN2qftB_v83RbKbbvs1ijgaofzcsFOtaAG9",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "m_pixel_ratio",
+        "value": "2",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "wd",
+        "value": "360x662",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "fr",
+        "value": "0758sfviYo6FLoRc2.AWV37lwEfbZBZ9AvQrfrm2qZCU0.Bl1fdR..AAA.0.0.BmXIc5.AWUiwvP_Pak",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "c_user",
+        "value": "100045842910929",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "xs",
+        "value": "18%3AxB2TuvDvYhZ6tA%3A2%3A1717339961%3A-1%3A7856",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "fbl_st",
+        "value": "101421421%3BT%3A28622332",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
+    },
+    {
+        "key": "wl_cbv",
+        "value": "v2%3Bclient_version%3A2518%3Btimestamp%3A1717339964",
+        "domain": "facebook.com",
+        "path": "/",
+        "hostOnly": false,
+        "creation": "2024-06-02T14:52:50.184Z",
+        "lastAccessed": "2024-06-02T14:52:50.184Z"
     }
-  },
-};
+]
